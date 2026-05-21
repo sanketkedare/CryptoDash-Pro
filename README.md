@@ -25,9 +25,10 @@ Designed to mimic professional institutional terminals (like Bloomberg and Reute
 
 ---
 
-## 🔗 Live Deployment & Case Study API
+## 🔗 Live Deployment & Case Study Info
 
 - **Live Production Terminal:** [https://cryptodash-pro-pi.vercel.app/](https://cryptodash-pro-pi.vercel.app/)
+- **Standalone Case Study Interface:** [https://cryptodash-pro-pi.vercel.app/casestudy](https://cryptodash-pro-pi.vercel.app/casestudy)
 - **Public Case Study JSON API:** [https://cryptodash-pro-pi.vercel.app/api/case-study](https://cryptodash-pro-pi.vercel.app/api/case-study)
 
 ---
