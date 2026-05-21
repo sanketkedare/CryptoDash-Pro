@@ -27,8 +27,8 @@ Designed to mimic professional institutional terminals (like Bloomberg and Reute
 
 ## 🔗 Live Deployment & Case Study API
 
-- **Live Production Terminal:** [https://crypto-dashboard-5buj.onrender.com/](https://crypto-dashboard-5buj.onrender.com/)
-- **Public Case Study JSON API:** [https://crypto-dashboard-5buj.onrender.com/api/case-study](https://crypto-dashboard-5buj.onrender.com/api/case-study)
+- **Live Production Terminal:** [https://cryptodash-pro-pi.vercel.app/](https://cryptodash-pro-pi.vercel.app/)
+- **Public Case Study JSON API:** [https://cryptodash-pro-pi.vercel.app/api/case-study](https://cryptodash-pro-pi.vercel.app/api/case-study)
 
 ---
 
