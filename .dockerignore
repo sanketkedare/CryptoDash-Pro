@@ -1,0 +1,16 @@
+node_modules
+.next
+.git
+.github
+.husky
+.vscode
+out
+build
+Dockerfile
+.dockerignore
+.env*.local
+README.md
+vitest.config.mts
+vitest.setup.ts
+playwright.config.ts
+e2e

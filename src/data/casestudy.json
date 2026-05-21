@@ -1,0 +1,43 @@
+{
+  "project": "CryptoDash Pro",
+  "client": "Sanket Kedare",
+  "industry": "FinTech / Web3 / Cryptocurrency Analytics",
+  "year": 2026,
+  "case_study": {
+    "title": "CryptoDash Pro: Engineering a Zero-Downtime, High-Performance Crypto Trading Terminal",
+    "executive_summary": "Modernizing a legacy cryptocurrency tracker into an institutional-grade, responsive 3-column trading terminal. By integrating React Query caching, client-side WebSocket streams, Next.js dynamic API middleware, and progressive web capabilities, the terminal offers high-performance live data updates with a zero-downtime structural fallback layer.",
+    "challenges": [
+      {
+        "issue": "Upstream API Rate Limiting (CoinGecko 429 Blocks)",
+        "description": "Public API tiers impose strict rate limits which previously caused the entire interface to crash or remain empty when exceeded during active market periods.",
+        "solution": "Built a server-side resilient proxy middleware that intercepts 429 blocks and dynamically serves a local high-performance INR-based backup cache. Every price, volume, high/low, and market cap metric is mathematically converted on-the-fly to the active global currency configuration (USD, EUR, YEN, INR) using live approximate forex ratios before delivery."
+      },
+      {
+        "issue": "Hydration Mismatch Warnings from Browser Extensions",
+        "description": "Cosmetic tags injected by browser extensions (e.g. Grammarly, translation plugins) into document body tags caused React SSR hydration failures and console spam.",
+        "solution": "Implemented suppressHydrationWarning attributes at the layout root layout body boundaries to safely bypass cosmetic browser adjustments post-rendering."
+      },
+      {
+        "issue": "Responsive Layout Options Overflow",
+        "description": "With comprehensive selector ranges (1D to 10Y options), the dashboard controls would clip and overflow on smaller mobile screens.",
+        "solution": "Refactored control panels into flexible wrapped flex grids with responsive layout breakpoints, hiding dividing borders on mobile to keep controls stackable and clean."
+      },
+      {
+        "issue": "Stale Valuation Exchange Conversions",
+        "description": "Dynamic cryptocurrency exchanges were previously dependent on a mock static JSON rate file, leading to inaccurate calculations.",
+        "solution": "Rewrote the exchange calculations to consume active, live React Query market rates, enabling live multi-currency calculations directly in the browser using the formula (Sell Price / Buy Price) * Amount."
+      }
+    ],
+    "architecture_decisions": {
+      "framework": "Next.js 16 (App Router) + TypeScript",
+      "state_management": "Redux Toolkit (master symbols, sidebar active configurations) + TanStack Query v5 (robust caching, invalidation, and deduplication)",
+      "data_streaming": "Binance WebSockets (wss://stream.binance.com:9443) for direct, low-latency browser ticker streaming",
+      "pwa": "Custom Service Worker caching strategy with a beautiful glassmorphic offline.html visual boundary"
+    },
+    "key_outcomes": {
+      "type_safety": "100% Type-Safe build compilation (zero compiler warnings)",
+      "offline_availability": "App is fully installable on mobile/desktop with reliable offline caching",
+      "resiliency": "Zero-downtime API proxy guaranteeing immediate fallback delivery under rate limit peaks"
+    }
+  }
+}

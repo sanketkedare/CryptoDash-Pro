@@ -1,0 +1,279 @@
+@import "tailwindcss";
+
+/* ── Tailwind v4 dark mode ───────────────────────────── */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Note: Space Grotesk & JetBrains Mono loaded via next/font/google in layout.tsx */
+
+/* ── Design Tokens ───────────────────────────────────── */
+:root {
+  /* Backgrounds */
+  --bg-base: #080b14;
+  --bg-surface: #0d1117;
+  --bg-card: rgba(255, 255, 255, 0.03);
+  --bg-card-hover: rgba(255, 255, 255, 0.06);
+  --bg-nav: rgba(8, 11, 20, 0.88);
+  --bg-ticker: rgba(8, 11, 20, 0.92);
+  --bg-toast: rgba(13, 17, 23, 0.96);
+
+  /* Borders */
+  --border: rgba(255, 255, 255, 0.08);
+  --border-nav: rgba(255, 255, 255, 0.06);
+  --border-hover: rgba(99, 102, 241, 0.4);
+
+  /* Accent */
+  --accent-from: #6366f1;
+  --accent-to: #06b6d4;
+  --accent-glow: rgba(99, 102, 241, 0.15);
+
+  /* Semantic */
+  --positive: #10b981;
+  --positive-bg: rgba(16, 185, 129, 0.12);
+  --negative: #ef4444;
+  --negative-bg: rgba(239, 68, 68, 0.12);
+
+  /* Text */
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #475569;
+}
+
+/* ── Base ────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  min-height: 100vh;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
+  -webkit-font-smoothing: antialiased;
+  background-image:
+    radial-gradient(ellipse at 20% 50%, rgba(99, 102, 241, 0.05) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(6, 182, 212, 0.04) 0%, transparent 50%);
+}
+
+/* ── Glass Card ──────────────────────────────────────── */
+.glass {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 16px;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+.glass:hover {
+  border-color: var(--border-hover);
+}
+
+.glass-sm {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(8px);
+  border-radius: 10px;
+}
+
+/* ── Gradient Text ───────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, var(--accent-from), var(--accent-to));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Gradient Button ─────────────────────────────────── */
+.btn-gradient {
+  background: linear-gradient(135deg, var(--accent-from), var(--accent-to));
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  transition:
+    opacity 0.2s ease,
+    transform 0.1s ease,
+    box-shadow 0.2s ease;
+}
+.btn-gradient:hover {
+  opacity: 0.9;
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+}
+.btn-gradient:active {
+  transform: scale(0.98);
+}
+
+/* ── Glow Border ─────────────────────────────────────── */
+.glow-border {
+  border: 1px solid transparent;
+  background-clip: padding-box;
+  box-shadow:
+    0 0 0 1px rgba(99, 102, 241, 0.2),
+    0 0 24px rgba(99, 102, 241, 0.1);
+}
+
+/* ── Positive / Negative badges ─────────────────────── */
+.badge-positive {
+  background: var(--positive-bg);
+  color: var(--positive);
+  border-radius: 6px;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  font-family: "JetBrains Mono", monospace;
+}
+.badge-negative {
+  background: var(--negative-bg);
+  color: var(--negative);
+  border-radius: 6px;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  font-family: "JetBrains Mono", monospace;
+}
+
+/* ── Price mono font ─────────────────────────────────── */
+.price-mono {
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  letter-spacing: -0.02em;
+}
+
+/* ── Shimmer ─────────────────────────────────────────── */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.03) 25%,
+    rgba(255, 255, 255, 0.07) 50%,
+    rgba(255, 255, 255, 0.03) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.8s infinite;
+  border-radius: 8px;
+}
+
+/* ── Scrollbar ───────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.5);
+}
+
+/* ── Toast ───────────────────────────────────────────── */
+.toast {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  background: var(--bg-toast);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  padding: 0.75rem 1.25rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  z-index: 9999;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(12px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ── Pill Button ─────────────────────────────────────── */
+.pill-btn {
+  padding: 4px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  background: transparent;
+  transition: all 0.18s ease;
+  cursor: pointer;
+}
+.pill-btn:hover {
+  color: var(--text-primary);
+  border-color: rgba(99, 102, 241, 0.5);
+  background: rgba(99, 102, 241, 0.1);
+}
+.pill-btn.active {
+  background: linear-gradient(135deg, var(--accent-from), var(--accent-to));
+  border-color: transparent;
+  color: white;
+  box-shadow: 0 0 16px rgba(99, 102, 241, 0.35);
+}
+
+/* ── Input ───────────────────────────────────────────── */
+.premium-input {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text-primary);
+  padding: 0 14px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 14px;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.premium-input:focus {
+  outline: none;
+  border-color: rgba(99, 102, 241, 0.5);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+.premium-input::placeholder {
+  color: var(--text-muted);
+}
+
+/* ── Divider ─────────────────────────────────────────── */
+.divider {
+  height: 1px;
+  background: var(--border);
+  width: 100%;
+}
+
+/* ── Section Label ───────────────────────────────────── */
+.section-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
