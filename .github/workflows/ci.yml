@@ -41,7 +41,7 @@ jobs:
   e2e:
     name: Playwright E2E
     runs-on: ubuntu-latest
-    needs: quality          # Only run if quality checks pass
+    needs: quality # Only run if quality checks pass
 
     steps:
       - uses: actions/checkout@v4

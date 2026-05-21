@@ -6,7 +6,7 @@ const ASSETS_TO_CACHE = [
   "/manifest.json",
   "/icon-192x192.png",
   "/icon-512x512.png",
-  "/offline.html"
+  "/offline.html",
 ];
 
 // Install event: cache initial offline resources
